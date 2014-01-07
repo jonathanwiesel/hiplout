@@ -19,7 +19,7 @@ K.initUser(klout_user, function(err, user){
                 lastScore = score;
                 console.log('Server initialized with score ' + lastScore + ' for user ' + klout_user);
 
-                new cronJob('*/10 * * * * *', function(){
+                new cronJob('* */30 * * * *', function(){
 
                     K.getScore(userId, function(error, score) {
                         if(error){
