@@ -1,0 +1,40 @@
+{
+  "name": "hiplout",
+  "description": "Klout score change notifier for HipChat",
+  "version": "0.0.1",
+  "author": {
+    "name": "Jonathan Wiesel",
+    "email": "jonathanwiesel@gmail.com",
+    "url": "http://github.com/jonathanwiesel"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/jonathanwiesel/hiplout.git"
+  },
+  "keywords": [
+    "klout",
+    "hipchat",
+    "score",
+    "api",
+    "notify",
+    "hiplout",
+    "influence"
+  ],
+  "scripts": {
+    "start": "node app.js"
+  },
+  "licenses": [{
+      "type": "MIT",
+      "url": "http://www.opensource.org/licenses/mit-license.php"
+  }],
+  "engines": {
+    "node": "0.10.24",
+    "npm":  "1.3.21"
+  },
+  "dependencies": {
+    "node_klout":"0.3.1",
+    "cron":"1.0.1",
+    "hipchatter":"0.0.8",
+    "async": "0.2.9"
+  }
+}
