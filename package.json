@@ -1,6 +1,6 @@
 {
   "name": "hiplout",
-  "description": "Klout score change notifier for HipChat",
+  "description": "Klout score change notifier for HipChat (API v2)",
   "version": "0.0.1",
   "author": {
     "name": "Jonathan Wiesel",

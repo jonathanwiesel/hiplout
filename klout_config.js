@@ -4,7 +4,7 @@ var Klout = require("node_klout"),
 var initUser = function(username, callback){
     klout.getKloutIdentity(username, function(error, user) {
         if(error){
-            callback(err, null);
+            callback(error, null);
         }else{
             callback(null, user.id);
         }

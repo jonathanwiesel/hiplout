@@ -1,5 +1,5 @@
 var cronJob = require('cron').CronJob,
-    hipchat = require('./hipchat.js'),
+    hipchat = require('./hiplout.js'),
     K = require('./klout_config.js'),
     klout_user = process.env.KLOUT_USER;
 
@@ -19,7 +19,7 @@ K.initUser(klout_user, function(err, user){
                 lastScore = score;
                 console.log('Server initialized with score ' + lastScore + ' for user ' + klout_user);
 
-                new cronJob('* */30 * * * *', function(){
+                new cronJob('0 */1 * * * *', function(){
 
                     K.getScore(userId, function(error, score) {
                         if(error){

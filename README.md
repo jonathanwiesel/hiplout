@@ -1,6 +1,6 @@
 #hiplout
 ***
-This simple application monitors a Klout user looking for changes in his and sends a notification to HipChat. Can be easily deployed to Heroku. You only need to set the following enviroment variables:
+This simple application monitors a Klout user looking for changes in his and sends a notification to HipChat (API v2). Can be easily deployed to Heroku. You only need to set the following enviroment variables:
 
 ```
 KLOUT_USER=klout_user_to_monitor

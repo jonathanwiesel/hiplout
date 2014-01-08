@@ -3,7 +3,7 @@ var Hipchat     =   require('hipchatter'),
     rooms       =   process.env.HIPCHAT_ROOM_ID.split('-'),
     roomTokens  =   process.env.HIPCHAT_ROOM_TOKEN.split('-'),
     mentionsVar =   process.env.HIPCHAT_ROOM_MENTION.split('-'),
-    params      =   { from: 'Klout', color: 'red', notify: true };
+    params      =   { message_format: 'text', color: 'red', notify: true };
 
 var buildMessage = function (oldScore, newScore){
 
@@ -21,7 +21,6 @@ var buildMessage = function (oldScore, newScore){
 function sendMessage(message){
 
     params.message = message;
-    params.message_format = 'text';
 
     for(var k=0; k < rooms.length; k++){
 
