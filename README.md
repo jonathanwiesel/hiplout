@@ -11,12 +11,6 @@ HIPCHAT_ROOM_TOKEN=room1_token-room2_token
 HIPCHAT_ROOM_MENTION=JonathanWiesel-here-all-...    # optional
 ```
 
-And install dependent modules:
-
-```sh
-$ npm install
-```
-
 The server will monitor for a Klout score change every half hour.
 
 Notice that if you want to support multiple rooms you **MUST** specify the same order for the rooms and tokens.
