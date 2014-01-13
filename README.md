@@ -5,7 +5,6 @@ This simple application monitors a Klout user looking for changes in his and sen
 ```
 KLOUT_USER=klout_user_to_monitor
 KLOUT_APIV2_KEY=klout_api_key
-HIPCHAT_API_V2_KEY=hipchat_APIV2_key
 HIPCHAT_ROOM_ID=123456-123457                       # separate multiple rooms by a dash (-)
 HIPCHAT_ROOM_TOKEN=room1_token-room2_token
 HIPCHAT_ROOM_MENTION=JonathanWiesel-here-all-...    # optional
