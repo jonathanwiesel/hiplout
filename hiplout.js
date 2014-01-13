@@ -1,51 +1,51 @@
 var Hipchat     =   require('hipchatter'),
-    hip         =   new Hipchat(process.env.HIPCHAT_API_V2_KEY),
+    hip         =   new Hipchat(),
     rooms       =   process.env.HIPCHAT_ROOM_ID.split('-'),
     roomTokens  =   process.env.HIPCHAT_ROOM_TOKEN.split('-'),
     mentionsVar =   process.env.HIPCHAT_ROOM_MENTION.split('-'),
-    params      =   { message_format: 'text', color: 'red', notify: true };
+    params      =   { color: 'red', notify: true };
 
-var buildMessage = function (oldScore, newScore){
+var Hiplout = function(){}
 
-    var message = '';
-    if(oldScore > newScore){
-        message += 'Your Klout score has decreased from ' + oldScore + ' to ' + newScore + '.' ;
-    }else{
-        message += 'Your Klout score has increased from ' + oldScore + ' to ' + newScore + '.' ;
-    }
+Hiplout.prototype = {
 
-    sendMessage(message);
-}
+    buildMessage: function (oldScore, newScore, callback){
 
-
-function sendMessage(message){
-
-    params.message = message;
-
-    for(var k=0; k < rooms.length; k++){
-
-        params.token = roomTokens[k];
-
-        if(process.env.HIPCHAT_ROOM_MENTION){
-            var mentions = 'Alerting';
-            for(var j=0; j < mentionsVar.length; j++){
-                mentions += ' @' + mentionsVar[j];
-            }
-
-            params.message += mentions;
+        var message = '';
+        if(oldScore > newScore){
+            message += 'Your Klout score has decreased from ' + oldScore + ' to ' + newScore + '.' ;
+        }else{
+            message += 'Your Klout score has increased from ' + oldScore + ' to ' + newScore + '.' ;
         }
 
-        hip.notify(rooms[k], params, function(err) {
-            if(err){
-                console.log(err);
-            }else{
-                console.log('Score changed!. Message sent to Hipchat room.');
+        callback(message);
+    },
+
+
+    sendMessage: function(message, callback){
+
+        params.message = message;
+        params.message_format = 'text';
+
+        for(var k=0; k < rooms.length; k++){
+
+            params.token = roomTokens[k];
+
+            if(process.env.HIPCHAT_ROOM_MENTION){
+                var mentions = 'Alerting';
+                for(var j=0; j < mentionsVar.length; j++){
+                    mentions += ' @' + mentionsVar[j];
+                }
+
+                params.message += mentions;
             }
-        });
+
+            hip.notify(rooms[k], params, function(err) {
+                if(err) callback('Error notifying room: ' + err);
+                else callback('Score changed!. Message sent to Hipchat room.');
+            });
+        }
     }
-
-
 }
 
-
-module.exports.buildMessage = buildMessage;
+module.exports = Hiplout;
